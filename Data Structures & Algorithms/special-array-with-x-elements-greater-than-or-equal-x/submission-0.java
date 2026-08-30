@@ -1,0 +1,18 @@
+class Solution {
+    public int specialArray(int[] nums) {
+        int l = 1, r = nums.length;
+        while(l <= r)
+        {
+            int mid = (l+r)/2;
+            int cnt = 0;
+            for(int num : nums)
+            {
+                if(num >= mid) cnt++;
+            }
+            if(cnt == mid) return mid;
+            else if(cnt < mid) r = mid-1;
+            else l = mid+1;
+        }
+        return -1;
+    }
+}
